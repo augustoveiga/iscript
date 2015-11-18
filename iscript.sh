@@ -2,7 +2,6 @@
 #Version 1.0 - November 2015
 #Written by Augusto Veiga
 
-
 function help() {
 	echo ""
 	echo "iscript - Simple script to run NMAP + NIKTO + SSLSCAN TEST."
