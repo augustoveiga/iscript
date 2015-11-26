@@ -1,5 +1,5 @@
 #!/bin/bash
-#Version 7.0 - November 2015
+#Version 8.0 - November 2015
 #Written by Augusto Veiga
 
 bold=$(tput bold)
@@ -62,7 +62,7 @@ then
 	# Port scan para identificar os hosts que estao #
 	# UP.                                           #    
 	#################################################
-	nmap -sP -T4 -vv $2 -oG /root/Desktop/iscriptResult/NMAP/pingscan | tee /root/Desktop/iscriptResult/LOG/pingscan.log
+	nmap -sn -vv -T4 $2 -oG /root/Desktop/iscriptResult/NMAP/pingscan | tee /root/Desktop/iscriptResult/LOG/pingscan.log
 
 	#################################################
 	# Grep para criar um arquivo com os hosts UPs   #
@@ -157,7 +157,7 @@ then
 		# Port scan para identificar os hosts que estao #
 		# UP.                                           #    
 		#################################################
-		nmap -sP -T4 -vv -iL $2 -oG /root/Desktop/iscriptResult/NMAP/pingscan | tee /root/Desktop/iscriptResult/LOG/pingscan.log
+		nmap -sn -vv -T4 -iL $2 -oG /root/Desktop/iscriptResult/NMAP/pingscan | tee /root/Desktop/iscriptResult/LOG/pingscan.log
 
 		#################################################
 		# Grep para criar um arquivo com os hosts UPs   #
@@ -171,7 +171,7 @@ then
 		# NMAP - Port Scanner                           #
 		# 3 OUTPUTS + LOG                               #
 		#################################################
-		nmap -Pn -A -vv -iL /root/Desktop/iscriptResult/NMAP/uplist --stylesheet nmap.xsl -oA /root/Desktop/iscriptResult/NMAP/nmap_result | tee /root/Desktop/iscriptResult/LOG/nmap_result.log
+		nmap -Pn -vv -A -iL /root/Desktop/iscriptResult/NMAP/uplist --stylesheet nmap.xsl -oA /root/Desktop/iscriptResult/NMAP/nmap_result | tee /root/Desktop/iscriptResult/LOG/nmap_result.log
 
 		################################################
 		# Grep para criar os arquivos "port80' e       #
