@@ -1,5 +1,6 @@
 #!/bin/bash
-#Version 6.0 - November 2015
+#Version 7.0 - November 2015
+#Written by Augusto Veiga
 
 bold=$(tput bold)
 
@@ -61,12 +62,12 @@ then
 	# Port scan para identificar os hosts que estao #
 	# UP.                                           #    
 	#################################################
-	nmap -sP -T4 $2 -oG /root/Desktop/iscriptResult/NMAP/pingscan
+	nmap -sP -T4 -vv $2 -oG /root/Desktop/iscriptResult/NMAP/pingscan | tee /root/Desktop/iscriptResult/LOG/pingscan.log
 
 	#################################################
 	# Grep para criar um arquivo com os hosts UPs   #
 	#################################################
-	grep Up /root/Desktop/iscriptResult/NMAP/pingscan | awk '{print $2}' > /root/Desktop/iscriptResult/NMAP/uplist | tee /root/Desktop/iscriptResult/LOG/pingscan.log
+	grep Up /root/Desktop/iscriptResult/NMAP/pingscan | awk '{print $2}' > /root/Desktop/iscriptResult/NMAP/uplist
 
 	echo ""
 
@@ -156,7 +157,7 @@ then
 		# Port scan para identificar os hosts que estao #
 		# UP.                                           #    
 		#################################################
-		nmap -sP -T4 -iL $2 -oG /root/Desktop/iscriptResult/NMAP/pingscan | tee /root/Desktop/iscriptResult/LOG/pingscan.log
+		nmap -sP -T4 -vv -iL $2 -oG /root/Desktop/iscriptResult/NMAP/pingscan | tee /root/Desktop/iscriptResult/LOG/pingscan.log
 
 		#################################################
 		# Grep para criar um arquivo com os hosts UPs   #
