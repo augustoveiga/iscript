@@ -1,6 +1,5 @@
 #!/bin/bash
-#Version 5.0 - November 2015
-#Written by Augusto Veiga
+#Version 6.0 - November 2015
 
 bold=$(tput bold)
 
